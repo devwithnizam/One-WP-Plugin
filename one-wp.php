@@ -62,4 +62,9 @@ if (! defined('ONE_WP_PLUGIN_URL')) {
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/scripts.php';
 
 // Hooks Action & Filters
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/hooks.php';
+// require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/hooks.php';
+
+// Include CPT, Taxonomies, Meta Boxes
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/cpt.php';
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/taxonomy.php';
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/meta-boxes.php';
