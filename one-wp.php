@@ -60,3 +60,6 @@ if (! defined('ONE_WP_PLUGIN_URL')) {
 
 // Include Scripts & Styles
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/scripts.php';
+
+// Hooks Action & Filters
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/hooks.php';
