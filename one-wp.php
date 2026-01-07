@@ -68,3 +68,6 @@ require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/scripts.php';
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/cpt.php';
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/taxonomy.php';
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/meta-boxes.php';
+
+// Include Shortcodes
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/shortcodes.php';
