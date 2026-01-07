@@ -4,7 +4,11 @@
 
 function one_wp_hello_world_shortcode()
 {
-    return '<h2>Hello, World! This is a shortcode from One WP plugin.</h2>';
+    $db_value = get_option('one_wp_setting_name');
+    if (!empty($db_value)) {
+        return $db_value;
+    }
+    return 'Hello, World!';
 }
 add_shortcode('ONE_HELLO', 'one_wp_hello_world_shortcode');
 
