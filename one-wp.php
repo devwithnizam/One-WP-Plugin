@@ -51,10 +51,6 @@ if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
     define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
 }
 
-if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
-    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
-}
-
 if (! defined('ONE_WP_PLUGIN_DIR_PATH')) {
 
     define('ONE_WP_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
@@ -82,10 +78,14 @@ require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/meta-boxes.php';
 // Plugin Custom settings page value dynamic usage in shortcode conditional output
 $shortcode_text = get_option('one_wp_setting_checkbox');
 // Include Shortcodes
-if($shortcode_text==='1'):{
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/shortcodes.php';
-};endif;
+if ($shortcode_text === '1'): {
+        require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/shortcodes.php';
+    };
+endif;
 // Include Admin Menu
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-menu.php';
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-page.php';
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-settings.php';
+
+// Database
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/db.php';

@@ -9,17 +9,25 @@ function one_wp_reactions_table()
 
     $charset_collate = $wpdb->get_charset_collate();
 
-    $sql = "CREATE TABLE $table_name (
-		id mediumint(9) NOT NULL AUTO_INCREMENT,
-		time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-		name tinytext NOT NULL,
-		text text NOT NULL,
-		url varchar(55) DEFAULT '' NOT NULL,
-		PRIMARY KEY  (id)
+    $sql = "CREATE TABLE IF NOT EXISTS $table_name (
+		id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        post_id BIGINT(20) UNSIGNED NOT NULL,
+        user_id BIGINT(20) UNSIGNED DEFAULT NULL,
+        reaction VARCHAR(20) NOT NULL,
+        ip_address VARCHAR(45) DEFAULT NULL,
+        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        PRIMARY KEY (id),
+        KEY post_id (post_id),
+        KEY user_id (user_id),
+        KEY reaction (reaction),
+        UNIQUE KEY unique_reaction (post_id, user_id, reaction)
 	) $charset_collate;";
 
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
     dbDelta($sql);
 
-    add_option('jal_db_version', $jal_db_version);
+    add_option('one_wp_db_version', $db_version);
 }
+
+register_activation_hook(__FILE__, 'one_wp_reactions_table');
