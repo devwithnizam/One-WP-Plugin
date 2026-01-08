@@ -48,7 +48,7 @@ if (!defined('ONE_WP_PLUGIN_VERSION')) {
     define('ONE_WP_PLUGIN_VERSION', '1.0.0');
 }
 if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
-    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
+    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.2');
 }
 
 if (! defined('ONE_WP_PLUGIN_DIR_PATH')) {
@@ -89,3 +89,4 @@ require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-settings.php';
 
 // Database
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/db.php';
+register_activation_hook(__FILE__, 'one_wp_reactions_table');
