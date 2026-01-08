@@ -1,12 +1,13 @@
-=== One WP ===
-Contributors: MD NIZAM UDDIN
-Tags: basic, starter, learning
-Requires at least: 5.2
-Tested up to: 6.4.2
-Requires PHP: 7.2
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+## One WP
+
+- Contributors: MD NIZAM UDDIN
+- Tags: basic, starter, learning
+- Requires at least: 5.2
+- Tested up to: 6.4.2
+- Requires PHP: 7.2
+- Stable tag: 1.0.0
+- License: GPLv2 or later
+- License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A starter plugin to handle the basics.
 
