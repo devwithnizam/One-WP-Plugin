@@ -12,7 +12,7 @@ A starter plugin to handle the basics.
 
 == Description ==
 
-One WP is a learning project and a starter plugin for WordPress developers. It provides a basic structure for enqueueing scripts and styles for both the admin and public-facing sides of a WordPress site. It's a great starting point for building more complex plugins.
+One WP is a comprehensive learning project and a starter plugin for WordPress developers. It provides a robust structure for managing various WordPress components, including custom post types, taxonomies, shortcodes, hooks, meta boxes, and administrative pages and settings. It also handles enqueueing scripts and styles for both the admin and public-facing sides of a WordPress site. It's an excellent starting point for building more complex and feature-rich plugins.
 
 == Installation ==
 
@@ -24,7 +24,7 @@ One WP is a learning project and a starter plugin for WordPress developers. It p
 
 = Does this plugin do anything out of the box? =
 
-Currently, it sets up the basic structure for adding admin and public CSS and JavaScript. You can find the files in `admin/js`, `admin/css`, `public/js`, and `public/css`.
+Currently, it sets up the basic structure for custom post types, taxonomies, shortcodes, action/filter hooks, meta boxes, and administrative menus, pages, and settings. You can also find the files for enqueuing admin and public CSS and JavaScript in their respective `admin` and `public` folders.
 
 == Screenshots ==
 
