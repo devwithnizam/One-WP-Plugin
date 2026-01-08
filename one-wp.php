@@ -8,7 +8,7 @@
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            MD. Nizam Uddin
- * Author URI:        https://www.linkedin.com/in/programmernizam/
+ * Author URI:        https://www.linkedin.com/in/devwithnizam/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Update URI:        https://example.com/my-plugin/
@@ -16,7 +16,7 @@
  */
 
 /** 
- * Copyright (c) 2025 MD. Nizam Uddin (https://www.linkedin.com/in/programmernizam/)
+ * Copyright (c) 2025 MD. Nizam Uddin (https://www.linkedin.com/in/devwithnizam/)
  * 
  * Released under the GPL v2 or later license
  * https://www.gnu.org/licenses/gpl-2.0.html
