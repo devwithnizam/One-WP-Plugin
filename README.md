@@ -29,33 +29,34 @@ The plugin is structured into the following directories:
 
 ## File Structure
 
+```
 one-wp/
-├── one-wp.php (Main plugin file)
-├── README.md (This file)
-├── admin/
-│   ├── css/
-│   │   └── admin.css (Admin styles)
-│   ├── js/
-│   │   └── admin.js (Admin scripts)
-│   └── images/ (Admin images)
-├── includes/
-│   ├── cpt.php (Custom Post Types)
-│   ├── hooks.php (Action and filter hooks)
-│   ├── meta-boxes.php (Meta box registration)
-│   ├── scripts.php (Script and style enqueueing)
-│   ├── shortcodes.php (Shortcode registration)
-│   ├── taxonomy.php (Custom Taxonomies)
-│   └── admin/
-│       ├── admin-menu.php (Admin menu registration)
-│       ├── admin-page.php (Admin page content)
-│       └── admin-settings.php (Plugin settings)
-└── public/
-    ├── css/
-    │   └── public.css (Public styles)
-    ├── js/
-    │   └── public.js (Public scripts)
-    └── images/ (Public images)
-
+├── one-wp.php           # Main plugin file
+├── README.md            # This file
+├── admin/               # Admin area files
+│   ├── css/             # Admin styles
+│   │   └── admin.css
+│   ├── js/              # Admin scripts
+│   │   └── admin.js
+│   └── images/          # Admin images
+├── includes/            # Core plugin files
+│   ├── cpt.php          # Custom Post Types
+│   ├── hooks.php        # Action and filter hooks
+│   ├── meta-boxes.php   # Meta box registration
+│   ├── scripts.php      # Script and style enqueueing
+│   ├── shortcodes.php   # Shortcode registration
+│   ├── taxonomy.php     # Custom Taxonomies
+│   └── admin/           # Admin-specific files
+│       ├── admin-menu.php # Admin menu registration
+│       ├── admin-page.php # Admin page content
+│       └── admin-settings.php # Plugin settings
+└── public/              # Public-facing files
+    ├── css/             # Public styles
+    │   └── public.css
+    ├── js/              # Public scripts
+    │   └── public.js
+    └── images/          # Public images
+```
 
 ## Frequently Asked Questions
 
