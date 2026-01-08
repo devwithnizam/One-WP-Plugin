@@ -51,6 +51,10 @@ if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
     define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
 }
 
+if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
+    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
+}
+
 if (! defined('ONE_WP_PLUGIN_DIR_PATH')) {
 
     define('ONE_WP_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
@@ -60,6 +64,9 @@ if (! defined('ONE_WP_PLUGIN_URL')) {
 
     define('ONE_WP_PLUGIN_URL', plugin_dir_url(__FILE__));
 }
+
+// Include DB
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/db.php';
 
 // Include Scripts & Styles
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/scripts.php';
