@@ -47,6 +47,9 @@ if (! defined('ABSPATH')) {
 if (!defined('ONE_WP_PLUGIN_VERSION')) {
     define('ONE_WP_PLUGIN_VERSION', '1.0.0');
 }
+if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
+    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
+}
 
 if (! defined('ONE_WP_PLUGIN_DIR_PATH')) {
 
