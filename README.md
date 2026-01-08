@@ -10,7 +10,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A starter plugin to handle the basics.
 
-== Description ==
+## Description
 
 One WP is a comprehensive learning project and a starter plugin for WordPress developers. It provides a robust structure for managing various WordPress components, including custom post types, taxonomies, shortcodes, hooks, meta boxes, and administrative pages and settings. It also handles enqueueing scripts and styles for both the admin and public-facing sides of a WordPress site. It's an excellent starting point for building more complex and feature-rich plugins.
 
@@ -20,13 +20,13 @@ The plugin is structured into the following directories:
 - `includes`: Contains the core PHP files for the plugin's functionality.
 - `public`: Contains the CSS, JavaScript, and image files for the public-facing side of the website.
 
-== Installation ==
+## Installation
 
 1. Upload the `one-wp` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Start building!
 
-== File Structure ==
+## File Structure
 
 one-wp/
 ├── one-wp.php (Main plugin file)
@@ -56,22 +56,22 @@ one-wp/
     └── images/ (Public images)
 
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= Does this plugin do anything out of the box? =
+### Does this plugin do anything out of the box?
 
 Currently, it sets up the basic structure for custom post types, taxonomies, shortcodes, action/filter hooks, meta boxes, and administrative menus, pages, and settings. You can also find the files for enqueuing admin and public CSS and JavaScript in their respective `admin` and `public` folders.
 
-== Screenshots ==
+## Screenshots
 
 1. The basic plugin structure.
 
-== Changelog ==
+## Changelog
 
-= 1.0.0 =
+### 1.0.0
 * Initial release.
 
-== Upgrade Notice ==
+## Upgrade Notice
 
-= 1.0.0 =
+### 1.0.0
 Initial release of the plugin.
