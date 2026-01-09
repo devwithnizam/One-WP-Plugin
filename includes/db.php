@@ -38,7 +38,7 @@ function one_wp_update_db()
     $current_version = ONE_WP_PLUGIN_DB_VERSION;
 
     if ($installed_version !== $current_version) {
-        $table_name = $wpdb->prefix . 'post_votes';
+        $table_name = $wpdb->prefix . 'votes';
 
         $charset_collate = $wpdb->get_charset_collate();
 

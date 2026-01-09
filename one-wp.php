@@ -48,7 +48,7 @@ if (!defined('ONE_WP_PLUGIN_VERSION')) {
     define('ONE_WP_PLUGIN_VERSION', '1.0.0');
 }
 if (!defined('ONE_WP_PLUGIN_DB_VERSION')) {
-    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.2');
+    define('ONE_WP_PLUGIN_DB_VERSION', '1.0.0');
 }
 
 if (! defined('ONE_WP_PLUGIN_DIR_PATH')) {
@@ -61,32 +61,8 @@ if (! defined('ONE_WP_PLUGIN_URL')) {
     define('ONE_WP_PLUGIN_URL', plugin_dir_url(__FILE__));
 }
 
-// Include DB
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/db.php';
-
-// Include Scripts & Styles
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/scripts.php';
-
-// Hooks Action & Filters
-// require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/hooks.php';
-
-// Include CPT, Taxonomies, Meta Boxes
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/cpt.php';
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/taxonomy.php';
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/meta-boxes.php';
-
-// Plugin Custom settings page value dynamic usage in shortcode conditional output
-$shortcode_text = get_option('one_wp_setting_checkbox');
-// Include Shortcodes
-if ($shortcode_text === '1'): {
-        require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/shortcodes.php';
-    };
-endif;
-// Include Admin Menu
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-menu.php';
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-page.php';
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-settings.php';
+// Include Plugin Class
+require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/plugin.php';
 
 // Database
-require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/db.php';
 register_activation_hook(__FILE__, 'one_wp_reactions_table');
