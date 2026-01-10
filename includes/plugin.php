@@ -23,6 +23,7 @@ class ONE_WP_Plugin
         require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-page.php';
         require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/admin/admin-settings.php';
         require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/shortcodes.php';
+        require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/voting.php';
     }
 
     /**
@@ -38,6 +39,11 @@ class ONE_WP_Plugin
     {
         wp_enqueue_style('one-wp-public-css', ONE_WP_PLUGIN_URL . 'assets/css/public.css', array(), ONE_WP_PLUGIN_VERSION, 'all');
         wp_enqueue_script('one-wp-public-js', ONE_WP_PLUGIN_URL . 'assets/js/public.js', array(), ONE_WP_PLUGIN_VERSION, true);
+        wp_enqueue_script('one-wp-ajax-js', ONE_WP_PLUGIN_URL . 'assets/js/ajax.js', ['jquery'], ONE_WP_PLUGIN_VERSION, true);
+        wp_localize_script('one-wp-ajax-js', 'one_wp_ajax_object', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce'    => wp_create_nonce('one_wp_ajax_nonce')
+        ));
     }
     /**
      * Register the admin menu and submenu pages.

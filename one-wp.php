@@ -65,4 +65,4 @@ if (! defined('ONE_WP_PLUGIN_URL')) {
 require_once ONE_WP_PLUGIN_DIR_PATH . 'includes/plugin.php';
 
 // Database
-register_activation_hook(__FILE__, 'one_wp_reactions_table');
+register_activation_hook(__FILE__, 'one_wp_database_table');

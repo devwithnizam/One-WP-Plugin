@@ -1,76 +1,45 @@
 <?php
 
-function one_wp_reactions_table()
+function one_wp_database_table()
 {
     global $wpdb;
     $db_version = ONE_WP_PLUGIN_DB_VERSION;
 
-    $table_name = $wpdb->prefix . 'reactions';
+    $table_reactions = $wpdb->prefix . 'reactions';
+    $table_votes = $wpdb->prefix . 'votes';
 
     $charset_collate = $wpdb->get_charset_collate();
 
-    $sql = "CREATE TABLE IF NOT EXISTS $table_name (
-		id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-        post_id BIGINT(20) UNSIGNED NOT NULL,
-        user_id BIGINT(20) UNSIGNED DEFAULT NULL,
-        reaction VARCHAR(20) NOT NULL,
-        ip_address VARCHAR(45) DEFAULT NULL,
-        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    $sql_reactions = "CREATE TABLE IF NOT EXISTS $table_reactions (
+		id BIGINT(20) NOT NULL AUTO_INCREMENT,
+        post_id BIGINT(20) NOT NULL,
+        user_id BIGINT(20) NOT NULL,
+        reaction_type VARCHAR(50) NOT NULL,
+        reaction_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
         PRIMARY KEY (id),
         KEY post_id (post_id),
         KEY user_id (user_id),
-        KEY reaction (reaction),
-        UNIQUE KEY unique_reaction (post_id, user_id, reaction)
+        KEY reacted_at (reaction_at)
+	) $charset_collate;";
+
+    $sql_votes = "CREATE TABLE IF NOT EXISTS $table_votes (
+		id BIGINT(20) NOT NULL AUTO_INCREMENT,
+        post_id BIGINT(20) NOT NULL,
+        user_id BIGINT(20) NOT NULL,
+        vote_type VARCHAR(50) NOT NULL,
+        voted_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        PRIMARY KEY (id),
+        KEY post_id (post_id),
+        KEY user_id (user_id),
+        KEY voted_at (voted_at)
 	) $charset_collate;";
 
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-    dbDelta($sql);
+    dbDelta($sql_reactions);
+    dbDelta($sql_votes);
 
     add_option('one_wp_db_version', $db_version);
 }
 
-function one_wp_update_db()
-{
-    global $wpdb;
-    $installed_version = get_option('one_wp_db_version');
-    $current_version = ONE_WP_PLUGIN_DB_VERSION;
-
-    if ($installed_version !== $current_version) {
-        $table_name = $wpdb->prefix . 'votes';
-
-        $charset_collate = $wpdb->get_charset_collate();
-
-        $sql = "CREATE TABLE IF NOT EXISTS $table_name (
-		id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-        post_id BIGINT(20) UNSIGNED NOT NULL,
-        user_id BIGINT(20) UNSIGNED DEFAULT NULL,
-        reaction VARCHAR(20) NOT NULL,
-        ip_address VARCHAR(45) DEFAULT NULL,
-        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
-        PRIMARY KEY (id),
-        KEY post_id (post_id),
-        KEY user_id (user_id),
-        KEY reaction (reaction),
-        UNIQUE KEY unique_reaction (post_id, user_id, reaction)
-	) $charset_collate;";
-
-        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-        dbDelta($sql);
-
-        update_option('one_wp_db_version', $current_version);
-    }
-}
-
-function one_wp_update_db_check()
-{
-    $installed_version = get_option('one_wp_db_version');
-    $current_version = ONE_WP_PLUGIN_DB_VERSION;
-    if ($installed_version !== $current_version) {
-        one_wp_update_db();
-    }
-}
-add_action('plugins_loaded', 'one_wp_update_db_check');
