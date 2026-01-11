@@ -4,12 +4,28 @@ function one_wp_handle_vote_callback()
 {
     global $wpdb;
 
-    $post_id = intval($_POST['post_id']);
-    $user_id = intval($_POST['user_id']);
-    $vote_type = sanitize_text_field($_POST['vote_type']); // "like" or "dislike"
+    // CSRF protection using nonce
+    check_ajax_referer('one_wp_vote_nonce', 'nonce');
 
-    if (empty($post_id) || empty($user_id) || !in_array($vote_type, ['like', 'dislike'])) {
-        wp_send_json_error(['message' => 'Invalid input.']);
+    $post_id = isset($_POST['post_id']) ? absint($_POST['post_id']) : 0;
+    $user_id = get_current_user_id();
+    $vote_type = isset($_POST['vote_type']) ? sanitize_text_field($_POST['vote_type']) : ''; // "like" or "dislike"
+
+    // Check user authentication
+    if (!is_user_logged_in()) {
+        wp_send_json_error(['message' => esc_html__('You must be logged in to vote.', 'one-wp')]);
+        return;
+    }
+
+    // Check post id exist
+    if (!get_post_status($post_id)) {
+        wp_send_json_error(['message' => esc_html__('Invalid Post ID.', 'one-wp')]);
+        return;
+    }
+
+    // Check vote type validity
+    if (!in_array($vote_type, ['like', 'dislike'], true)) {
+        wp_send_json_error(['message' => esc_html__('Invalid Vote Type.', 'one-wp')]);
         return;
     }
 
@@ -77,3 +93,4 @@ function one_wp_handle_vote_callback()
 
 // Register AJAX actions for logged-in users with prefix 'wp_ajax_' before hook name
 add_action('wp_ajax_one_wp_handle_vote', 'one_wp_handle_vote_callback');
+add_action('wp_ajax_nopriv_one_wp_handle_vote', 'one_wp_handle_vote_callback');
