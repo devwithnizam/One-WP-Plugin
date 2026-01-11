@@ -11,8 +11,8 @@ function one_wp_handle_vote_callback()
     $user_id = get_current_user_id();
     $vote_type = isset($_POST['vote_type']) ? sanitize_text_field($_POST['vote_type']) : ''; // "like" or "dislike"
 
-    // Check user authentication
-    if (!is_user_logged_in()) {
+    // Check user authentication & capability
+    if (!is_user_logged_in() || !current_user_can('read')) {
         wp_send_json_error(['message' => esc_html__('You must be logged in to vote.', 'one-wp')]);
         return;
     }
